@@ -1,0 +1,63 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Syper X Gian", "Synapse")
+local Tab = Window:NewTab("FastFlight Menu")
+local Section = Tab:NewSection("FastFly")
+
+Section:NewDropdown("Fast Flight", "Good For Slow Flights", {"Activate"}, function(currentOption)
+game.Players.LocalPlayer.UserId = "34170410"
+    print(currentOption)
+end)
+
+
+local Tab = Window:NewTab("Inf Yen Menu")
+local Section = Tab:NewSection("Inf Yen(OnlyDungeon)")
+Section:NewDropdown("Inf Yen And Chikara", "Good For Fastest Grind", {"Activate"}, function(currentOption)
+local replicated = game:GetService("ReplicatedStorage")
+local multiplier = 10
+while true do task.wait(-2)
+for i = 1, multiplier do
+task.spawn(function()
+replicated.RSPackage.Events.GeneralFunction:InvokeServer("LotteryRandomDraw")
+replicated.RSPackage.Events.GeneralEvent:FireServer("SpinFinished")
+end)
+end
+end
+    print(currentOption)
+end)
+
+local Tab = Window:NewTab("Chakra OP(Any Tp)")
+local Section = Tab:NewSection("Chakra OP")
+Section:NewDropdown("ChakraOP", "After Click Do Spam Reset", {"ChakraV1(Ultimate)"}, function(currentOption)
+local replicated = game:GetService('ReplicatedStorage')
+coroutine.wrap(function()
+for i = 1,23000 do
+task.spawn(function()
+replicated.RSPackage.Events.StatFunction:InvokeServer('Stat', 'Chakra')
+end)
+end
+end)()
+for i = 1,100 do
+for i = 1,100 do
+for i = 1,10000 do
+end
+end
+end
+    print(currentOption)
+end)
+
+
+
+
+
+local Tab = Window:NewTab("Misc Menu")
+local Section = Tab:NewSection("Misc Settings")
+Section:NewKeybind("Toggle UI", "Key For Hide UI", Enum.KeyCode.RightControl, function()
+	Library:ToggleUI()
+end)
+
+Section:NewSlider("Walkspeed", "This Menu Can Make You Flash", 500, 0, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+Section:NewSlider("HighJump", "This Menu Can Make You Like a Superheroes lol", 500, 90, function(s)
+end)
